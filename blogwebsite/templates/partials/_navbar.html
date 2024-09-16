@@ -1,0 +1,35 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">BlogAPP</a>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogs' %}">My Blogs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogs_write' %}">Write</a>
+            </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="">Welcome - {{user.get_full_name|title}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">SignIn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">SignUp</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
