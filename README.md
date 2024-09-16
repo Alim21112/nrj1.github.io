@@ -1,4 +1,4 @@
-# My project is a blog page with django framework.
+#  This is a blog page with django framework.
 # This project use to PostgreSQL
 # If you want to use:
 ## You create your virtual environment,
